@@ -9,9 +9,10 @@ class Admin extends CI_Controller {
     }
 	
 	//pagina de login vai aqui
-    public function entrar()
+    public function entrar($msg=null)
 	{
-		$this->load->view('paginas/login');
+		$query['msg'] = $msg;
+		$this->load->view('paginas/login', $query);
     }
 	
 	public function autenticar()
@@ -29,11 +30,22 @@ class Admin extends CI_Controller {
 			$dados['logado'] = true;
 			$this->session->set_userdata($dados);
 			
-			echo 'SUCESSO MEU QUERIDO';
+			redirect('admin/painel');
 		}
 		else{
-			echo 'ERRO';	
+			redirect('admin/entrar/error');	
 			}
 		
+	}
+	public function sair()
+	{
+		$this->session->sess_destroy();
+		redirect('admin/entrar');
+	}
+	public function painel()
+	{
+		$this->load->view('componentes/cabecario');
+		$this->load->view('painel/inicio');
+		$this->load->view('componentes/rodape');
 	}
 }

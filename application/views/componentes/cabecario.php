@@ -8,7 +8,8 @@
     <meta name="generator" content="Jekyll v3.8.6">
     <title>Global Guia - Área Administrativa.</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/floating-labels/">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/dashboard/">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -28,45 +29,60 @@
     <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
     <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#563d7c">
+
+
     <!-- Custom styles for this template -->
-    <link href="<?= base_url(); ?>public/css/login.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>public/css/painel.css" rel="stylesheet">
   </head>
   <body>
-  <form action="<?= base_url(); ?>admin/autenticar" method="post" class="form-signin">
-  <div class="text-center mb-4">
-   
-    <h1 class="h3 mb-3 font-weight-normal">GLOBAL GUIA</h1>
-    <p>Entrar na Área administrativa.</a></p>
-  </div>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><strong>Global Guia</strong></a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="<?= base_url(); ?>admin/sair"><i class="fas fa-sign-out-alt"></i> Sair</a>
+    </li>
+  </ul>
+</nav>
 
-    <?php if ($msg == 'error'): ?>
-    
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong><i class="fas fa-exclamation-triangle"></i> ERRO:</strong> USUARIO OU SENHA INVALIDOS.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+            <i class="fas fa-home"></i>
+              Painel Inicial
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+            <i class="fas fa-bullhorn"></i>
+              Anúncios
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+            <i class="far fa-envelope"></i>
+              Mensagens
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+            <i class="fas fa-id-card-alt"></i>
+              Clientes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url(); ?>admin/sair">
+            <i class="fas fa-sign-out-alt"></i>
+              Sair
+            </a>
+          </li>
+        </ul>
+
+        
       </div>
-		<?php endif; ?>
+    </nav>
 
-  <div class="form-label-group">
-    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputEmail">Email</label>
-  </div>
-
-  <div class="form-label-group">
-    <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Password" required>
-    <label for="inputPassword">Senha</label>
-  </div>
-
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Lembrar senha
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-  <p class="mt-5 mb-3 text-muted text-center">Global Guia &copy; 2017-2019</p>
-</form>
-</body>
-
-</html>
+   
