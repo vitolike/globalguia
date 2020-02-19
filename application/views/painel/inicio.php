@@ -38,7 +38,7 @@
     <div class="card">
       
       <div class="card-body">
-        <h5 class="card-title"><i class="fas fa-info-circle"></i> Anúncios</h5>
+        <h5 class="card-title">Anúncios</h5>
         <br>
       <div class="table-responsive">
        
@@ -56,6 +56,44 @@
       <th scope="row"><?= $result->id; ?></th>
       <td><?= $result->descricao; ?></td>
       <td><?= $result->telefone; ?></td>
+      <td width="200"> 
+          <button type="button" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Editar</button>
+          <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Apagar</button>
+    </td>
+    </tr><?php }?>
+    
+</table>
+
+
+      </div>
+      </div>
+    </div>
+
+<br>
+<br>
+    <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">Anúnciantes</h5>
+        <br>
+      <div class="table-responsive">
+       
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Anúnciante</th>
+      <th scope="col">CNPJ/CPF</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Atalhos</th>
+    </tr>
+  </thead>
+  <tbody><?php foreach($anunciantes as $r) {?>
+    <tr>
+      <th scope="row"><?= $r->id; ?></th>
+      <td><?= $r->nome; ?></td>
+      <td><?= $r->cnpj; ?></td>
+      <td><?= $r->telefone; ?></td>
       <td width="200"> 
           <button type="button" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Editar</button>
           <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Apagar</button>

@@ -46,7 +46,7 @@ class Admin extends CI_Controller {
 	{
 		$query['msg'] = $msg;
 		$query['anuncios'] = $this->db->get('anuncios')->result();
-
+		$query['anunciantes'] = $this->db->get('anunciantes')->result();
 
 		$this->load->view('componentes/cabecario');
 		$this->load->view('painel/inicio', $query);
