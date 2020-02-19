@@ -35,7 +35,10 @@
   <form action="<?= base_url(); ?>admin/autenticar" method="post" class="form-signin">
   <div class="text-center mb-4">
    
-    <h1 class="h3 mb-3 font-weight-normal">GLOBAL GUIA</h1>
+
+    <img src="<?= base_url(); ?>public/images/logo.jpg" class="img-fluid" />
+
+
     <p>Entrar na Área administrativa.</a></p>
   </div>
 

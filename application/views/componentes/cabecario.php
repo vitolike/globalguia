@@ -36,7 +36,7 @@
   </head>
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><strong>Global Guia</strong></a>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><img src="<?= base_url(); ?>public/images/logo.jpg" class="img-fluid" width="80" height="60" /></a>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <a class="nav-link" href="<?= base_url(); ?>admin/sair"><i class="fas fa-sign-out-alt"></i> Sair</a>

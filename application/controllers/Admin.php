@@ -42,10 +42,97 @@ class Admin extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('admin/entrar');
 	}
-	public function painel()
+	public function painel($msg=null)
 	{
+		$query['msg'] = $msg;
+		$query['anuncios'] = $this->db->get('anuncios')->result();
+
+
 		$this->load->view('componentes/cabecario');
-		$this->load->view('painel/inicio');
+		$this->load->view('painel/inicio', $query);
 		$this->load->view('componentes/rodape');
 	}
+	public function add_anuncio()
+
+	{	
+		if($_FILES['foto']["name"] == null ){
+			
+			$data = $this->input->post();
+			$data['foto'] = 'nopic.jpg';
+
+			if($this->db->insert('anuncios', $data)){
+				redirect('admin/painel/sucesso');
+			}
+
+		}else{
+			$foto    = $_FILES['foto'];
+			$configuracao = array(
+			'upload_path'   => realpath('./public/uploads'),
+			'allowed_types' => 'gif|jpg|png|jpeg',
+			'file_name'     => md5($this->input->post('foto')),
+			'max_size'      => '10000000'
+			   );      
+			$this->upload->initialize($configuracao);
+				
+				
+			if ($this->upload->do_upload('foto')){
+							
+				$upload_data = $this->upload->data();
+	
+				$data = $this->input->post();	
+				
+				$data['foto'] = $upload_data['file_name'];
+	
+				if($this->db->insert('anuncios', $data)){
+					redirect('admin/painel/sucesso');
+				}
+			}else{
+				redirect('admin/painel/erro');
+			}
+		}
+		
+
+	}
+	public function add_cliente()
+
+	{	
+		if($_FILES['logo']["name"] == null ){
+			
+			$data = $this->input->post();
+			$data['logo'] = 'nopic.jpg';
+
+			if($this->db->insert('anunciantes', $data)){
+				redirect('admin/painel/sucesso');
+			}
+
+		}else{
+			$foto    = $_FILES['logo'];
+			$configuracao = array(
+			'upload_path'   => realpath('./public/uploads'),
+			'allowed_types' => 'gif|jpg|png|jpeg',
+			'file_name'     => md5($this->input->post('logo')),
+			'max_size'      => '10000000'
+			   );      
+			$this->upload->initialize($configuracao);
+				
+				
+			if ($this->upload->do_upload('logo')){
+							
+				$upload_data = $this->upload->data();
+	
+				$data = $this->input->post();	
+				
+				$data['logo'] = $upload_data['file_name'];
+	
+				if($this->db->insert('anunciantes', $data)){
+					redirect('admin/painel/sucesso');
+				}
+			}else{
+				redirect('admin/painel/erro');
+			}
+		}
+		
+
+	}
+
 }
